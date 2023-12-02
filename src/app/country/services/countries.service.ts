@@ -55,12 +55,12 @@ export class CountriesService {
     )
   }
 
-  getCountriesBordersByCodes( borders: string[]): Observable<smallCountry[]> {
-    if(!borders || borders.length === 0) return of([]);
+  getCountriesByCodes( codes: string[]): Observable<smallCountry[]> {
+    if(!codes || codes.length === 0) return of([]);
 
     const countriesRequests: Observable<smallCountry>[] = []
 
-    borders.forEach( code => {
+    codes.forEach( code => {
       const req = this.getCountryByAlphaCode(code);
       countriesRequests.push(req);
     })
